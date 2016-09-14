@@ -2,8 +2,14 @@ package com.niit.backend.model;
 
 import java.util.UUID;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import org.springframework.stereotype.Component;
+@Entity
+@Component
 public class Event {
-	
+	@Id
 private String event_id;
 private String eventName;
 private String createdAt;

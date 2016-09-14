@@ -2,8 +2,14 @@ package com.niit.backend.model;
 
 import java.util.UUID;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import org.springframework.stereotype.Component;
+@Entity
+@Component
 public class Blog {
-	
+	@Id
 private String blog_id;
 private String title;
 private String desscripti;
