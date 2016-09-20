@@ -1,0 +1,20 @@
+{
+  "name": "Online Collaboration Website",
+  "homepage": "https://github.com/ajitkumar21/Collaboration",
+  "authors": [
+    "Ajit kumar <ajitkm.17@gmail.com>"
+  ],
+  "description": "This is a collaboration project",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

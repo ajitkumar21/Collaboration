@@ -1,0 +1,67 @@
+ <div id="page-wrapper">
+
+            <div class="row">
+                <!-- Page Header -->
+                <div class="col-lg-12">
+                <h1 class="page-header">Forums</h1>
+                </div>
+                <!--End Page Header -->
+            </div>
+          <div class=" row"> 
+          <div class="col-lg-12">
+<div  ng-controller="forumController">
+                    
+
+ <div class="panel panel-default ">
+                        <div class="panel-heading">
+                             Latest Forums
+                    <hr>
+                    <div class="inner-content" ng-repeat="f in forumCtrl.forum">
+                        <h3 class="">{{f.name}}</h3><button ng-if="!f.toggle" ng-click="f.toggle=true" class="pull-right">Show</button>
+                        <div>
+                        <p >{{f.title}}&nbsp;&nbsp; </p>
+                        <p> <b>{{f.forumPost.length}} Posts</b> <a class="pull-right"  ng-click="f.toggle=true" href="">Comments</a></p>  
+                        <br>     
+                       <div  ng-class="{'hidden':!f.toggle}">
+                         <table class="table table-striped" >                                     
+                           <tbody>
+                               <tr ng-repeat="post in f.forumPost">
+                                   <td>{{post.forumpst}}</td>
+
+                               </tr> 
+                           </tbody>
+                        </table>
+                       
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Comment...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-comment-o"></i>
+                                </button>
+                            </span>
+                             <button ng-if="f.toggle" ng-click="f.toggle=false" class="pull-right">hide</button>
+                        </div>
+                       
+                    </div>  
+                </div>  
+                </div>
+                </div>
+                </div>
+                </div>        
+            </div>
+    
+</div>
+
+
+
+
+
+        </div>
+        <!-- end page-wrapper -->
+
+
+
+
+
+</div>
+        <!-- end wrapper -->
