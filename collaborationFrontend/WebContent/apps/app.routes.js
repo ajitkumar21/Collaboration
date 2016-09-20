@@ -20,8 +20,9 @@ app.config(['$routeProvider',function($routeProvider) {
 
 	.when('/forum/',{
 
-		templateUrl:"apps/components/views/forum/forumView.html",
+		templateUrl:"apps/components/views/forum/forum.html",
 		controller:"forumController",
+		controllerAs:"forumCtrl"
 		
 			})
 	

@@ -2,19 +2,19 @@
 
             <div class="row">
                 <!-- Page Header -->
-                <div class="col-lg-12">
-                <h1 class="page-header">Forums</h1>
+                <div class="col-lg-9">
+                <h1 class="page-header"><span style="color:#656565;">Forums</span></h1>
                 </div>
                 <!--End Page Header -->
             </div>
           <div class=" row"> 
-          <div class="col-lg-12">
+          <div class="col-lg-8">
 <div  ng-controller="forumController">
                     
 
  <div class="panel panel-default ">
                         <div class="panel-heading">
-                             Latest Forums
+                             Recent Forums
                     <hr>
                     <div class="inner-content" ng-repeat="f in forumCtrl.forum">
                         <h3 class="">{{f.name}}</h3><button ng-if="!f.toggle" ng-click="f.toggle=true" class="pull-right">Show</button>

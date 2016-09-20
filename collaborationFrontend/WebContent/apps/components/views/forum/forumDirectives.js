@@ -19,7 +19,7 @@ forumPost:
 }]},
 {name:"thirdForum",title:"Hello this is first forum" ,
 forumPost:
-[{forumpst:"hi hello everone"},{forumpst:"hi hello everone"}]
+[{forumpst:"hi hello everone"},{forumpst:"how are you?"}]
 },
 {name:"fourthForum",title:"Hello this is first forum" ,
 forumPost:
