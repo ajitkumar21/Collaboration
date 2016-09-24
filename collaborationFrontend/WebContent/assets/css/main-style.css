@@ -11,7 +11,7 @@ Author: http://binarytheme.com
     height: 150px;
     margin-top:30px;
     font-size:22px;
-    background-color:#85C1E9;
+    background-color:#044382;
 }
 .user-section-inner {
     height: 85px;
@@ -61,7 +61,8 @@ color: #FFFFFF;
 padding: 20px 15px;
 }
 #side-menu {
-    background-color:#A9CCE3;
+    
+    background-color:#044382;
 }
 
  #side-menu a {
@@ -93,7 +94,7 @@ padding: 20px 15px;
 /* tap nvbar Section */
 
 #navbar {
-    background-color:#85C1E9;
+    background-color:#044382;
 }
 
 .navbar-brand {

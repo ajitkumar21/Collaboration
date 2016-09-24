@@ -4,28 +4,29 @@ forum.controller('forumController', function(){
 	fm.toggle=false;
 	var forum=[
 
-	{name:"firstForum",title:"Hello this is first forum" ,
+	{name:"My Forum",title:"Wassap Evryone?" ,
 	forumPost:
 	[
 	{
-		forumpst:"hi hello everone"
+		forumpst:"hey good to see you"
+	},
+
+	{
+		forumpst:"thanks, how you doin?"
+	},
+	
+	{
+		forumpst:"I'm good, hbu?"
 	}
+
 	]
 },
-{name:"secondForum",title:"Hello this is first forum" ,
-forumPost:
-[{
-	forumpst:"hi hello everone"
-}]},
-{name:"thirdForum",title:"Hello this is first forum" ,
-forumPost:
-[{forumpst:"hi hello everone"},{forumpst:"how are you?"}]
-},
-{name:"fourthForum",title:"Hello this is first forum" ,
-forumPost:
-[{
-	forumpst:"hi hello everone"
-}]}
+
+
+
+
+
+
 
 ];
 fm.forum=forum;

@@ -1,13 +1,22 @@
 package com.niit.backend.model;
 
+import java.util.Date;
 import java.util.UUID;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import org.springframework.stereotype.Component;
+
+@Entity
+@Component
 public class JobOpportunities {
-	
+
+@Id
 private String jobOportunities_id;
 private String title;
 private String description;
-private String createdAt;
+private Date createdAt;
 
 
 public String getJobOportunities_id() {
@@ -28,10 +37,10 @@ public String getDescription() {
 public void setDescription(String description) {
 	this.description = description;
 }
-public String getCreatedAt() {
+public Date getCreatedAt() {
 	return createdAt;
 }
-public void setCreatedAt(String createdAt) {
+public void setCreatedAt(Date createdAt) {
 	this.createdAt = createdAt;
 }
 public JobOpportunities(){

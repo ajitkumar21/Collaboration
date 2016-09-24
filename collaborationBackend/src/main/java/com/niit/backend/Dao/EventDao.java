@@ -14,9 +14,15 @@ public interface EventDao {
 	
 	Event get(String event_id);
 	
-	Event getEventByName(String title);
-		
-	List<Event> list();
+	List<Event> listAllEvents();
+
+	boolean isEventExist(Event event);
+
+	Event findById(String event_id);
+
+	void deleteUserById(String event_id);
+
+	void deleteAllUsers();
 		
 		
 

@@ -6,15 +6,16 @@ app.config(['$routeProvider',function($routeProvider) {
 	$routeProvider
 	.when('/home/',{
 
-		templateUrl:"apps/components/views/homeView.html",
+		templateUrl:"apps/components/views/home/home.html",
 		controller:"homeController",
 		
 			})
 
 	.when('/blog/',{
 
-		templateUrl:"apps/components/views/blogView.html",
+		templateUrl:"apps/components/views/blog/blog.html",
 		controller:"blogController",
+		controllerAs:"blogCtrl"
 		
 			})
 
@@ -25,5 +26,17 @@ app.config(['$routeProvider',function($routeProvider) {
 		controllerAs:"forumCtrl"
 		
 			})
+
+	.when('/event/',{
+
+		templateUrl:"apps/components/views/event/event.html",
+		controller:"eventController",
+		    })
+
+	.when('/jobOpportunities/',{
+
+		templateUrl:"apps/components/views/jobOpportunities/job.html",
+		controller:"jobController",
+		    })
 	
 }]);

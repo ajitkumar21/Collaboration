@@ -2,8 +2,17 @@ package com.niit.backend.model;
 
 import java.util.UUID;
 
-public class User {
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
+import org.springframework.stereotype.Component;
+
+
+@Entity
+@Component
+public class User {
+    
+	@Id
 	private String user_id;
 	private String userName;
 	private String password;

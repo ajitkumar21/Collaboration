@@ -1,0 +1,67 @@
+ <div id="page-wrapper">
+
+            <div class="row">
+                <!-- Page Header -->
+                <div class="col-lg-10">
+                <h1 class="page-header"><span style="color:Maroon;">BLOG</span></h1>
+                </div>
+                <!--End Page Header -->
+            </div>
+            
+
+            <div class=" row"> 
+    <div class="col-lg-8">
+      <div  ng-controller="blogController">
+
+      <div class="panel panel-default ">
+        <div class="panel-heading">
+         <b><span style="color:#696969;">Recent blog</span></b>
+         <hr>
+
+         <div class="inner-content" ng-repeat="b in blogCtrl.blog">
+          <h3 class=""><span style="color:#EC7063;">{{b.name}}</span></h3>
+          <!--<button ng-if="!f.toggle" ng-click="f.toggle=true" class="pull-right">Show</button>-->
+          <div>
+          <p ><b>{{b.title}}&nbsp;&nbsp; </b> </p>
+            <p> <b>{{b.blogPost.length}} Posts</b>
+            <a class="pull-right"  ng-click="b.toggle=true" href="">Comments</a>
+           </p> 
+
+           <br>  
+              
+           <div  ng-class="{'hidden':!b.toggle}">
+             <table class="table table-striped" >                                     
+               <tbody>
+                 <tr ng-repeat="post in b.blogPost">
+                   <td>{{post.blogpst}}</td>
+
+                 </tr> 
+               </tbody>
+             </table>
+
+             <div class="input-group">
+              <input type="text" class="form-control" placeholder="Comment...">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                  <i class="fa fa-comment-o"></i>
+                </button>
+              </span>
+              <button ng-if="b.toggle" ng-click="b.toggle=false" class="pull-right"><i class="fa fa-angle-up"></i></button>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+
+
+         
+
+
+
+        </div>
+        <!-- end page-wrapper -->

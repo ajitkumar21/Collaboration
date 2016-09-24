@@ -2,8 +2,18 @@ package com.niit.backend.model;
 
 import java.util.UUID;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import org.springframework.stereotype.Component;
+
+
+@Entity
+@Component
 public class ForumPost {
+
 	
+@Id
 private String forumPost_id;
 private String userDetails_id;
 private String forumDescription;

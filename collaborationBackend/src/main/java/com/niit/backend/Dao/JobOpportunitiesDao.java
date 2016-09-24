@@ -14,6 +14,6 @@ public interface JobOpportunitiesDao {
 	
 	JobOpportunities get(String jobOpportunities_id);
 		
-	List<JobOpportunities> list();
+	List<JobOpportunities> listAllJobOpportunities();
 
 }

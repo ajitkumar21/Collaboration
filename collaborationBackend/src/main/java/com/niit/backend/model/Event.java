@@ -1,5 +1,6 @@
 package com.niit.backend.model;
 
+import java.util.Date;
 import java.util.UUID;
 
 import javax.persistence.Entity;
@@ -12,7 +13,7 @@ public class Event {
 	@Id
 private String event_id;
 private String eventName;
-private String createdAt;
+private Date createdAt;
 private String description;
 
 
@@ -28,10 +29,10 @@ public String getEventName() {
 public void setEventName(String eventName) {
 	this.eventName = eventName;
 }
-public String getCreatedAt() {
+public Date getCreatedAt() {
 	return createdAt;
 }
-public void setCreatedAt(String createdAt) {
+public void setCreatedAt(Date createdAt) {
 	this.createdAt = createdAt;
 }
 public String getDescription() {

@@ -15,7 +15,7 @@ public interface BlogDao {
 	
 	Blog getBlogByName(String title);
 		
-	List<Blog> list();
+	List<Blog> listAllBlog();
 		
 	
 
