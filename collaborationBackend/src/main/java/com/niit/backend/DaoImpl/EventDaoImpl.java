@@ -17,7 +17,6 @@ public class EventDaoImpl implements EventDao {
 
 	@Autowired
 	SessionFactory sessionFactory;
-	
 	@Override
 	public void saveOrUpdate(Event event) {
 		// TODO Auto-generated method stub
@@ -25,27 +24,10 @@ public class EventDaoImpl implements EventDao {
 		sessionFactory.getCurrentSession().saveOrUpdate(event);
 	}
 
-	@Override
-	public void editEvent(Event event) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void deleteEvent(Event event) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Event get(String event_id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 	@Override
 	public List<Event> listAllEvents() {
-	
+		// TODO Auto-generated method stub
 		String hql="from Event";
 		Query query=sessionFactory.getCurrentSession().createQuery(hql);
 		List<Event> listEvent=query.getResultList();
@@ -56,7 +38,8 @@ public class EventDaoImpl implements EventDao {
 	@Override
 	public boolean isEventExist(Event event) {
 		// TODO Auto-generated method stub
-		return false;
+		
+		return findByName(event.getEventName())!=null;
 	}
 
 	@Override
@@ -81,9 +64,22 @@ public class EventDaoImpl implements EventDao {
 	}
 
 	@Override
-	public void deleteAllUsers() {
+	public void deleteAllEvents() {
 		// TODO Auto-generated method stub
-		
+		sessionFactory.getCurrentSession().delete(getClass());
+	}
+
+
+	@Override
+	public Event findByName(String eventName) {
+		// TODO Auto-generated method stub
+		String hql = "from Event where eventName=" + "'" + eventName + "'";
+		Query query =(Query) sessionFactory.getCurrentSession().createQuery(hql);
+		List<Event> listEvent = (List<Event>) query.getResultList();
+		if (listEvent  != null && !listEvent .isEmpty()) {
+			return listEvent.get(0);
+		}
+		return null;
 	}
 
 }

@@ -10,20 +10,20 @@ import org.springframework.stereotype.Component;
 
 @Entity
 @Component
-public class JobOpportunities {
+public class Job {
 
 @Id
-private String jobOportunities_id;
+private String job_id;
 private String title;
 private String description;
 private Date createdAt;
 
 
-public String getJobOportunities_id() {
-	return jobOportunities_id;
+public String getJob_id() {
+	return job_id;
 }
-public void setJobOportunities_id(String jobOportunities_id) {
-	this.jobOportunities_id = jobOportunities_id;
+public void setJob_id(String job_id) {
+	this.job_id = job_id;
 }
 public String getTitle() {
 	return title;
@@ -43,7 +43,7 @@ public Date getCreatedAt() {
 public void setCreatedAt(Date createdAt) {
 	this.createdAt = createdAt;
 }
-public JobOpportunities(){
-	this.jobOportunities_id="JOB"+UUID.randomUUID().toString().substring(30).toUpperCase();
+public Job(){
+	this.job_id="JOB"+UUID.randomUUID().toString().substring(30).toUpperCase();
 }
 }

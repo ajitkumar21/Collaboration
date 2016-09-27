@@ -21,7 +21,7 @@ import com.niit.backend.model.Event;
 import com.niit.backend.model.Forum;
 import com.niit.backend.model.ForumPost;
 import com.niit.backend.model.ForumPostComment;
-import com.niit.backend.model.JobOpportunities;
+import com.niit.backend.model.Job;
 import com.niit.backend.model.User;
 import com.niit.backend.model.UserDetails;
 
@@ -62,7 +62,7 @@ public class ApplicationContextConfig {
 		sessionBuilder.addAnnotatedClass(Forum.class);
 		sessionBuilder.addAnnotatedClass(ForumPost.class);
 		sessionBuilder.addAnnotatedClass(ForumPostComment.class);
-		sessionBuilder.addAnnotatedClass(JobOpportunities.class);
+		sessionBuilder.addAnnotatedClass(Job.class);
 		sessionBuilder.addAnnotatedClass(User.class);
 		
         return sessionBuilder.buildSessionFactory();

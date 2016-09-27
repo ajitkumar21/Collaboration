@@ -31,12 +31,15 @@ app.config(['$routeProvider',function($routeProvider) {
 
 		templateUrl:"apps/components/views/event/event.html",
 		controller:"eventController",
+		controllerAs:"eventCtrl"
 		    })
 
 	.when('/jobOpportunities/',{
 
-		templateUrl:"apps/components/views/jobOpportunities/job.html",
+		templateUrl:"apps/components/views/job/job.html",
 		controller:"jobController",
+		controllerAs:"jobCtrl"
+
 		    })
 	
 }]);
