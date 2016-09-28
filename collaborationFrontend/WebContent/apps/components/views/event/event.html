@@ -15,56 +15,56 @@
           <div class="panel-heading" style="background:#ECF0F1">
            <i><b><input type="button" class="btn btn-default form-control" style="background:#D0ECE7" value="{{!eventCtrl.event.event_id ? 'Add Event' : 'Update Event'}}"/></b></i>
 
-             <form ng-submit="eventCtrl.submit()" name="myForm" >
-              <input type="hidden" ng-model="eventCtrl.event.event_id" />
-            </b>
-          </i>
-          <br>
-          <i><input type="text" ng-model="eventCtrl.event.eventName" id="eventName" class="form-control input-sm" placeholder="Event title ...." /></i>
-          <br>
-          <i><input type="text" ng-model="eventCtrl.event.description" id="description" class="form-control input-sm" placeholder="Event Description......"/></i>
-          <br>
-          <div align="center">
-            <input type="submit" value="{{!eventCtrl.event.event_id ? 'Add' : 'Update'}}" class="btn btn-success" ng-disabled="myForm.$invalid">
-            <span>
-              <button type="button" ng-click="eventCtrl.reset()" class="btn btn-primary" >Reset</button> 
-            </span>
-          </div>             
-        </form>
-      </div>
+           <form ng-submit="eventCtrl.submit()" name="myForm" >
+            <input type="hidden" ng-model="eventCtrl.event.event_id" />
+          </b>
+        </i>
+        <br>
+        <i><input type="text" ng-model="eventCtrl.event.eventName" id="eventName" class="form-control input-sm" placeholder="Event title ...." /></i>
+        <br>
+        <i><input type="text" ng-model="eventCtrl.event.description" id="description" class="form-control input-sm" placeholder="Event Description......"/></i>
+        <br>
+        <div align="center">
+          <input type="submit" value="{{!eventCtrl.event.event_id ? 'Add' : 'Update'}}" class="btn btn-success" ng-disabled="myForm.$invalid">
+          <span>
+            <button type="button" ng-click="eventCtrl.reset()" class="btn btn-primary" >Reset</button> 
+          </span>
+        </div>             
+      </form>
     </div>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <div class="col-lg-12">
-    <div class="row">
-      <div ng-repeat="event in eventCtrl.events">
-        <div class="col-lg-6">
-         <table class="table table-striped" > <tr> 
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="col-lg-12">
+  <div class="row">
+    <div ng-repeat="event in eventCtrl.events">
+    <div class="col-lg-4">
+       <table class="table table-striped" > <tr> 
 
-          <tbody>
-            <td><a ng-click="eventCtrl.remove(event.event_id)"><span class="fa fa-times pull-right"></span></a>
-              <a ng-click="eventCtrl.edit(event.event_id)" ><span class="fa fa-pencil pull-right" ></span></a>
-              <span style="color:#1ABC9C;"><i>Event</i></span>
-            </td> </tr>
-            <td ng-if='$odd' style="background:#D0ECE7"> <a><h3><span style="color:#5D6D7E;"><i>{{event.eventName}}</i></span></h3></a>
-             <p>{{event.description}}</p>
-             <p>Date:{{event.createdAt|date : 'medium'}}</p>
-           </td>
-           <td ng-if='$even' style="background:#D4EFDF"> <a><h3><span style="color:#5D6D7E;"><i>{{event.eventName}}</i></span></h3></a>
-             <p>{{event.description}}</p>
-             <p>Date:{{event.createdAt|date : 'medium'}}</p>
-           </td></tbody>
-         </table>
-       </div>
+        <tbody>
+          <td><a ng-click="eventCtrl.remove(event.event_id)"><span class="fa fa-times pull-right"></span></a>
+            <a ng-click="eventCtrl.edit(event.event_id)" ><span class="fa fa-pencil pull-right" ></span></a>
+            <span style="color:#1ABC9C;"><i>Event</i></span>
+          </td> </tr>
+          <td ng-if='$odd' style="background:#A9CCE3"> <a><h3><span style="color:#5D6D7E;"><i>{{event.eventName}}</i></span></h3></a>
+           <p>{{event.description}}</p>
+           <p>Date:{{event.createdAt|date : 'medium'}}</p>
+         </td>
+         <td ng-if='$even' style="background:#A3E4D7"> <a><h3><span style="color:#5D6D7E;"><i>{{event.eventName}}</i></span></h3></a>
+           <p>{{event.description}}</p>
+           <p>Date:{{event.createdAt|date : 'medium'}}</p>
+         </td></tbody>
+       </table>
      </div>
-
    </div>
+
  </div>
+</div>
 
 </div>
 </div>
