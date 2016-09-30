@@ -2,18 +2,22 @@ package com.niit.backend.Dao;
 
 import java.util.List;
 
-import com.niit.backend.model.ForumPostComment;
+import com.niit.backend.model.ForumPost;
 
 public interface ForumPostDao {
 	
-	void saveOrUpdate(ForumPostComment forumPostComment);
+	void saveOrUpdate(ForumPost forumPost);
 
-	void editForum(ForumPostComment forumPostComment);
+	void editForum(ForumPost forumPost);
 		
-	void deleteForum(ForumPostComment forumPostComment);
+	void deleteForum(ForumPost forumPost);
 	
-	ForumPostComment get(String forumPostComment_id);
+	ForumPost get(String forumPost_id);
 		
-	List<ForumPostComment> list();
+		List<ForumPost> listAllForumPost();
+
+		void deleteForumPostById(String forumPost_id);
+
+		ForumPost findById(String forumPost_id);
 
 }

@@ -1,0 +1,77 @@
+<div id="page-wrapper">
+
+	<div class="row">
+		<!-- Page Header -->
+		<div class="col-lg-9">
+			<h1 class="page-header" align="center"><span style="color:Maroon;">Forums</span></h1>
+		</div>
+		<br>
+		<br>
+		<!--End Page Header -->
+		<div class=" row"> 
+			<div class="col-lg-8">
+				<div  ng-controller="forumViewController">
+
+
+					<div class="panel panel-default ">
+						<div class="panel-heading">
+							<a ng-href="#forum"><i class="fa fa-arrow-left"></i> <span style="color:#636363;"><b>Back</b></span></a>
+							<div class="inner-content" >	
+								
+								<h3><strong>Title: </strong><i><span style="color:Maroon;"><b>{{forumViewCtrl.forumView.title}}</b></span></i></h3>
+								<p>{{forumViewCtrl.forumView.createdAt|date:'medium'}}</p>
+								<br>
+								<p>Description:{{forumViewCtrl.forumView.description}}</p><br>
+								
+								<form ng-submit="forumViewCtrl.submitPost()">
+									<input type="hidden" ng-model="forumViewCtrl.forumPost.forumPost_id">
+									<input type="text" id="forumDescription" ng-model="forumViewCtrl.forumPost.forumDescription" class="form-control input-sm" placeholder="Enter post"/>
+									<br>
+									<input type="submit" value="{{!forumViewCtrl.forumPost.forumPost_id ? 'Add' : 'Update'}}" class="btn btn-success "/>
+									<br>
+								</form>
+								<br>
+
+							</div>
+
+							<div class="inner-content" ng-repeat="post in forumViewCtrl.forumView.forumPost">
+
+								<a ng-click="forumViewCtrl.remove(post.forumPost_id)" href=""><span class="fa fa-trash  pull-right" ></span></a>
+
+								<a ng-click="forumViewCtrl.edit(post.forumPost_id)" href=""><span class="fa fa-pencil  pull-right" ></span></a>	
+
+								<p><h3><i><b><span style="color:#616A6B;" ;">{{post.forumDescription}}</span></b></i></h3></p>
+
+								<!--
+
+								<a ng-href=""><b>View</b></a>
+
+								-->
+								
+								<p>{{post.createdAt|date:'medium'}}</p>
+
+
+								
+							</div>
+
+
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+
+
+	</div>
+
+
+</div>
+</div>

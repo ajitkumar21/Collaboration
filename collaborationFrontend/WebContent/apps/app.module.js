@@ -5,6 +5,7 @@ var app = angular.module('collaborationApp',
  ['collaborationAppHome',
   'collaborationAppBlog',
   'collaborationAppForum',
+  'collaborationAppForumView',
   'collaborationAppEvent',
   'collaborationAppJob',
   'ngRoute']

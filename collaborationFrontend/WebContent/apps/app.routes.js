@@ -27,6 +27,14 @@ app.config(['$routeProvider',function($routeProvider) {
 		
 			})
 
+	.when('/forums/forumView/:forum_id',{
+
+		templateUrl:"apps/components/views/forum/forumView.html",
+		controller:"forumViewController",
+		controllerAs:"forumViewCtrl"
+		
+			})
+
 	.when('/event/',{
 
 		templateUrl:"apps/components/views/event/event.html",

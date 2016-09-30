@@ -6,17 +6,21 @@ import com.niit.backend.model.Forum;
 
 public interface ForumDao {
 	
-	void saveOrUpdate(Forum forum);
+void saveOrUpdate(Forum forum);
+	
+	List<Forum> listAllForums();
+	
+	List<Forum> listSingleForum();
+	
+	public Forum findByName(String title);
 
-	void editForum(Forum forum);
-		
-	void deleteForum(Forum forum);
-	
-	Forum get(String forum_id);
-	
-	Forum getForumByName(String title);
-		
-	List<Forum> list();
+		boolean isForumExist(Forum forum);
+
+		Forum findById(String forum_id);
+
+		void deleteForumById(String forum_id);
+
+		void deleteAllForums();
 		
 		
 

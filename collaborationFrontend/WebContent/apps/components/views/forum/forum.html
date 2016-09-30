@@ -3,8 +3,13 @@
   <div class="row">
     <!-- Page Header -->
     <div class="col-lg-9">
-      <h1 class="page-header"><span style="color:#656565;">Forums</span></h1>
+      <h1 class="page-header" align="center"><span style="color:Maroon;">Forums</span></h1>
+
+      <br>
     </div>
+
+    
+
     <!--End Page Header -->
   </div>
   <div class=" row"> 
@@ -15,40 +20,50 @@
        <div class="panel panel-default ">
         <div class="panel-heading">
          <b><span style="color:#696969;">Recent Forums</span></b>
+         
          <hr>
-         <div class="inner-content" ng-repeat="f in forumCtrl.forum">
-          <h3 class=""><span style="color:#16A085;">{{f.name}}</span></h3>
-          <!--<button ng-if="!f.toggle" ng-click="f.toggle=true" class="pull-right">Show</button>-->
-          <div>
-            <p ><b>{{f.title}}&nbsp;&nbsp; </b> </p>
-            <p> <b>{{f.forumPost.length}} Posts</b>
-             <a class="pull-right"  ng-click="f.toggle=true" href="">Comments</a>
-           </p>  
+         <br>
 
-           <br>  
-              
-           <div  ng-class="{'hidden':!f.toggle}">
-             <table class="table table-striped" >                                     
-               <tbody>
-                 <tr ng-repeat="post in f.forumPost">
-                   <td>{{post.forumpst}}</td>
+         <form ng-submit="forumCtrl.submit()">
+           <input type="hidden" ng-model="forumCtrl.forum.forum_id">
+           <input type="text" ng-model="forumCtrl.forum.title" id="title" class="form-control input-sm" placeholder="Forum title" />
+           <br>
+           <input type="text" ng-model="forumCtrl.forum.description" id="description" class="form-control input-sm" placeholder="Forum Description" />
+           <br>
+           <input type="submit" value="{{!forumCtrl.forum.forum_id ? 'create forum' : 'Update'}}" class="btn btn-success "/>
+           <button type="button" ng-click="forumCtrl.reset()" class="btn btn-primary" >Reset</button>
 
-                 </tr> 
-               </tbody>
-             </table>
+         </form>
+         <br>
 
-             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Comment...">
-              <span class="input-group-btn">
-                <button class="btn btn-default" type="button">
-                  <i class="fa fa-comment-o"></i>
-                </button>
-              </span>
-              <button ng-if="f.toggle" ng-click="f.toggle=false" class="pull-right"><i class="fa fa-angle-up"></i></button>
-            </div>
+         <hr>
 
-          </div>  
-        </div>  
+
+
+
+
+         <div class="inner-content" ng-repeat="forum in forumCtrl.forums">
+        
+        
+        <a ng-click="forumCtrl.edit(forum.forum_id)" href=""><span class="fa fa-pencil  pull-right" ></span></a>
+        <span style="color:Maroon;"><h3><i class="fa fa-share"></i><i><b> {{forum.title}}</b></i></h3></span>
+        <br>
+        <br>
+        <p><i><b><span style="color:#656565;">{{forum.description}}</span></b></i></p>
+
+        <br>
+        
+        
+        <a ng-href="#forums/forumView/{{forum.forum_id}}"><b>view</b></a>
+        <p>{{forum.createdAt|date:'medium'}}</p>
+        <br>
+
+        <hr>
+        
+        
+
+
+
       </div>
     </div>
   </div>
@@ -56,6 +71,8 @@
 </div>
 
 </div>
+</div>
+
 
 
 
