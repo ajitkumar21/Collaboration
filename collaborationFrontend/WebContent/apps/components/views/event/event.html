@@ -31,9 +31,14 @@
           </span>
         </div>             
       </form>
+
+      
+
     </div>
   </div>
 </div>
+
+
 <br>
 <br>
 <br>
@@ -43,7 +48,7 @@
 <div class="col-lg-12">
   <div class="row">
     <div ng-repeat="event in eventCtrl.events">
-    <div class="col-lg-4">
+    <div class="col-lg-6">
        <table class="table table-striped" > <tr> 
 
         <tbody>
@@ -51,11 +56,11 @@
             <a ng-click="eventCtrl.edit(event.event_id)" ><span class="fa fa-pencil pull-right" ></span></a>
             <span style="color:#1ABC9C;"><i>Event</i></span>
           </td> </tr>
-          <td ng-if='$odd' style="background:#A9CCE3"> <a><h3><span style="color:#5D6D7E;"><i>{{event.eventName}}</i></span></h3></a>
+          <td ng-if='$odd' style="background:#A9CCE3"> <a><h3><span style="color:#5D6D7E;"><i><i class="fa fa-share"></i> {{event.eventName}}</i></span></h3></a>
            <p>{{event.description}}</p>
            <p>Date:{{event.createdAt|date : 'medium'}}</p>
          </td>
-         <td ng-if='$even' style="background:#A3E4D7"> <a><h3><span style="color:#5D6D7E;"><i>{{event.eventName}}</i></span></h3></a>
+         <td ng-if='$even' style="background:#A3E4D7"> <a><h3><span style="color:#5D6D7E;"><i><i class="fa fa-share"></i> {{event.eventName}}</i></span></h3></a>
            <p>{{event.description}}</p>
            <p>Date:{{event.createdAt|date : 'medium'}}</p>
          </td></tbody>

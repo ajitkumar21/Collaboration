@@ -21,7 +21,8 @@
 								<h3><strong>Title: </strong><i><span style="color:Maroon;"><b>{{forumViewCtrl.forumView.title}}</b></span></i></h3>
 								<p>{{forumViewCtrl.forumView.createdAt|date:'medium'}}</p>
 								<br>
-								<p>Description:{{forumViewCtrl.forumView.description}}</p><br>
+								<p><b>Description: <i><span style="color:#696969;">{{forumViewCtrl.forumView.description}}</span></i></b></p>
+								<br>
 								
 								<form ng-submit="forumViewCtrl.submitPost()">
 									<input type="hidden" ng-model="forumViewCtrl.forumPost.forumPost_id">
@@ -30,6 +31,7 @@
 									<input type="submit" value="{{!forumViewCtrl.forumPost.forumPost_id ? 'Add' : 'Update'}}" class="btn btn-success "/>
 									<br>
 								</form>
+								<hr>
 								<br>
 
 							</div>
@@ -40,7 +42,8 @@
 
 								<a ng-click="forumViewCtrl.edit(post.forumPost_id)" href=""><span class="fa fa-pencil  pull-right" ></span></a>	
 
-								<p><h3><i><b><span style="color:#616A6B;" ;">{{post.forumDescription}}</span></b></i></h3></p>
+								<p><h3><i><b><span style="color:#48C9B0;" ;">{{post.forumDescription}}</span></b></i></h3></p>
+
 
 								<!--
 
@@ -49,6 +52,7 @@
 								-->
 								
 								<p>{{post.createdAt|date:'medium'}}</p>
+								<hr>
 
 
 								
