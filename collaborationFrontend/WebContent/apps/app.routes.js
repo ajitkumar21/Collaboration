@@ -4,12 +4,23 @@
 
 app.config(['$routeProvider',function($routeProvider) {
 	$routeProvider
+
+	.when('/',{
+
+		templateUrl:"apps/components/views/login/login.html",
+		controller:"userController",
+		controllerAs:"userCtrl"
+		
+			})
+	
 	.when('/home/',{
 
 		templateUrl:"apps/components/views/home/home.html",
 		controller:"homeController",
 		
 			})
+
+	
 
 	.when('/blog/',{
 
@@ -49,5 +60,7 @@ app.config(['$routeProvider',function($routeProvider) {
 		controllerAs:"jobCtrl"
 
 		    })
+
+	
 	
 }]);

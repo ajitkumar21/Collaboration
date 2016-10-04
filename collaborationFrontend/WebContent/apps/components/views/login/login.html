@@ -1,22 +1,113 @@
-<<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>LOGIN</title>
-</head>
-<body>
-
-	<form>
-
+<div class="Login-back">
+	<div class="container">
+		<br>
 		
-			USER NAME: <input type="text" value="name">
-			<br>
-			PASSWORD : <input type="text" value="password">
-			<br>
-		    <input type="submit" value ="submit">
-	
+		
+		<div class="row" style="background:#E5E8E8">
+		<div class="col-md-12">
 
-	</form>
-	
-</body>
-</html>
+		<h1 class="page-header" align="center">
+		<b>
+		<span style="color:Maroon;">S </span>
+		<span style="color:#16A085;">K</span>
+		<span style="color:#D4AC0D;">I</span>
+		<span style="color:#717D7E;">T</span>
+		<span style="color:#2E86C1;">T</span>
+		<span style="color:#EC7063;">L</span>
+		<span style="color:#A569BD;">E</span>
+		</b>
+		</h1>
+
+		</div>
+
+			
+		</div>
+		<br>
+		<br>
+		<div class="row">    
+			<div class="col-md-5">
+				<div class="demo-panel panel panel-default">                  
+					<div class="panel-heading" style="background:#E5E8E8">
+						<h2 class="panel-title"><b><span style="color:#EC7063"> Login </span></b></h2>
+					</div>
+					<div class="panel-body" style="background:#F4F6F6">
+						<form role="form">
+							<fieldset>
+								<div class="form-group">
+									<input class="form-control" placeholder="Enter Email_Id" name="email" type="email" autofocus>
+								</div>
+
+								<div class="form-group">
+									<input class="form-control" placeholder="Enter Password" name="password" type="password" value="">
+								</div>
+								<br>
+
+
+								<!-- Change this to a button or input when using this as a form -->
+								<a href="#home" class="btn btn-md btn-primary btn-block">Login</a>
+
+								<br>
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+
+
+			<div class="col-md-5 col-md-offset-1">
+				<div class="demo-panel panel panel-default">                  
+					<div class="panel-heading" style="background:#E5E8E8">
+						<h2 class="panel-title"><b><span style="color:#5499C7;">Register Here</span></b></h2>
+					</div>
+					<div class="panel-body" style="background:#F4F6F6">
+						<form role="form" ng-submit="userCtrl.submit()">
+							<fieldset>
+								<div class="form-group">
+
+									<b><input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="Alumni">     <span style="color:#239B56;">Student</span>                
+									<input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="Employee">     <span style="color:#239B56;">Alumni</span>                
+									<input type="radio" ng-model="userCtrl.userDetails.status" name="status" value="Students">   <span style="color:#239B56;">Employee</span>
+									</b>
+
+								</div>
+								<br>
+								<div class="form-group">
+									<input class="form-control" ng-model="userCtrl.userDetails.userName" placeholder="Name" name="name" type="name" autofocus>
+								</div>
+								<div class="form-group">
+									<input type="radio" ng-model="userCtrl.userDetails.gender" name="gender" value="male" > <span style="color:#A93226;"><b>Male</b></span>
+									<input type="radio" ng-model="userCtrl.userDetails.gender" name="gender" value="female"> <span style="color:#A93226;"><b>Female</b></span>
+								</div>
+								<br>
+								<div class="form-group">
+									<label for="birthday"><span style="color:#17A589";>Birthday</span></label>
+									<input class="form-control" ng-model="userCtrl.userDetails.dateOfBirth" type="date" name="bday">
+								</div>
+								<br>
+								<div class="form-group">
+									<input class="form-control" ng-model="userCtrl.userDetails.email" placeholder=" Enter Email" name="email" type="email">
+								</div>
+								<div class="form-group">
+									<input class="form-control" ng-model="userCtrl.userDetails.phoneNo" placeholder=" Enter contact number" name="number" type="PhoneNumber" >
+								</div>
+								<div class="form-group">
+									<input class="form-control" ng-model="userCtrl.userDetails.password" placeholder="Password" name="password" type="password" value="">
+								</div>
+								<div class="form-group">
+									<input class="form-control" placeholder="Confirm Password" name="password" type="password" value="">
+								</div>
+								<br>
+
+								<!-- Change this to a button or input when using this as a form -->
+								<input type="submit"  value="Create an account" class="btn btn-md btn-success btn-block"/>
+
+								<br>
+								
+							</fieldset>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

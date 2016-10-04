@@ -6,11 +6,14 @@ import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.Dao.UserDetailsDao;
 import com.niit.backend.model.UserDetails;
 
+@Repository("userDetailsDao")
+@Transactional
 public class UserDetailsDaoImpl implements UserDetailsDao {
 
 	@Autowired
@@ -20,21 +23,21 @@ public class UserDetailsDaoImpl implements UserDetailsDao {
 			this.sessionFactory = sessionFactory;
 
 		}
-	@Transactional
+	@Override
 	public void saveOrUpdate(UserDetails userDetails) {
 		// TODO Auto-generated method stub
 
 		sessionFactory.getCurrentSession().saveOrUpdate(userDetails);
 	}
 
-	@Transactional
+	@Override
 	public UserDetails get(String userDetails_id) {
 		// TODO Auto-generated method stub
 		
 		return sessionFactory.getCurrentSession().get(UserDetails.class, userDetails_id);
 	}
 
-	@Transactional
+	@Override
 	public List<UserDetails> list() {
 		// TODO Auto-generated method stub
 		@SuppressWarnings("unchecked")
@@ -44,7 +47,7 @@ public class UserDetailsDaoImpl implements UserDetailsDao {
 		
 	}
 
-	@Transactional
+	@Override
 	public UserDetails getUserDetailsByUserName(String userName) {
 		// TODO Auto-generated method stub
 		String hql = "from UserDetails where userName=" + "'" + userName + "'";
@@ -56,6 +59,18 @@ public class UserDetailsDaoImpl implements UserDetailsDao {
 			
 		
 		return null;
+	}
+	@Override
+	public List<UserDetails> listAllUserDetails() {
+		// TODO Auto-generated method stub
+		List<UserDetails> listUserDetails= (List<UserDetails>) sessionFactory.getCurrentSession()
+				.createCriteria(UserDetails.class).setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
+				return listUserDetails;
+	}
+	@Override
+	public boolean isUserDetailsExist(UserDetails userDetails) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }
