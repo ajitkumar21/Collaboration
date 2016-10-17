@@ -1,0 +1,75 @@
+<menus-bar></menus-bar>
+  <sidemenu-bar></sidemenu-bar>
+  <br>
+  <br>
+
+  <div class="container">
+<div id="page-wrapper">
+
+    <div class="row">
+        <!-- Page Header -->
+        <div style="background:#E5E8E8;">
+   <marquee> 
+
+     <h1 class="page-header" align="center"><span style="color:Maroon;"><span class="fa fa-calendar-o"> </span> Blogs </span></h1>
+   </marquee>
+ </div>
+        <!--End Page Header -->
+    </div>
+    <br>
+    <div class=" row"> 
+      <div class="col-lg-10">
+        <div  ng-controller="blogViewController">
+
+
+         <div class="panel panel-default ">
+            <div class="panel-heading">
+            <a ng-href="#blog"><i class="fa fa-arrow-left"></i> Back</a>
+                            <div class="inner-content" >
+                                <h3><strong>Title:</strong>{{blogViewCtrl.blogView.title}}</h3>
+                                <p>{{blogViewCtrl.blogView.createdAt|date:'medium'}}</p>
+                                <br>
+                                <p>Description:{{blogViewCtrl.blogView.desscription}}</p><br>
+                                
+                                <form ng-submit="blogViewCtrl.submitComment()">
+                                <input type="hidden" ng-model="blogViewCtrl.blog_comments.blogComment_id">
+                                    <input type="text" id="description" ng-model="blogViewCtrl.blog_comments.description" class="form-control input-sm" placeholder="Enter tile"/>
+                                    <br>
+                                    <input type="submit" value="{{!blogViewCtrl.blog_comments.blogComment_id ? 'Add Comment' : 'Update'}}" class="btn btn-primary "/>
+                                </form>
+
+                            </div>
+
+                          <div class="inner-content" ng-repeat="post in blogViewCtrl.blogView.blog_comments">
+                                <a ng-click="blogViewCtrl.remove(post.blogComment_id)" href=""><span class="fa fa-trash-o  pull-right" style="color:red"></span></a>
+                                 <a ng-click="blogViewCtrl.edit(post.blogComment_id)" href=""><span class="fa fa-pencil-square-o  pull-right" ></span></a>                           
+                                <p>{{post.description}}</p>
+                                <a ng-href="">View</a>
+                                <p>{{post.com_createdAt|date:'medium'}}</p>
+
+
+                                
+                            </div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+ <my-footer></my-footer>

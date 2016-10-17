@@ -26,6 +26,7 @@ eventService.factory('EventService', ['$http','$q', function($http,$q){
 	}
 
 	function createEvent(event) {
+        /*
         var deferred = $q.defer();
         $http.post(REST_SERVICE_URI, event)
             .then(
@@ -38,6 +39,24 @@ eventService.factory('EventService', ['$http','$q', function($http,$q){
             }
         );
         return deferred.promise;
+        */
+         var deferred = $q.defer();
+    $http.post(REST_SERVICE_URI,event,{
+        transformRequest : angular.identity,
+        headers : {
+            'Content-Type' : undefined
+        }
+    })
+    .then(
+        function (response) {
+            deferred.resolve(response.data);
+        },
+        function(errResponse){
+            console.error('Error while creating Event');
+            deferred.reject(errResponse);
+        }
+        );
+    return deferred.promise;
     }
  
  

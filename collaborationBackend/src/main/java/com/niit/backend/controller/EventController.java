@@ -1,20 +1,29 @@
 package com.niit.backend.controller;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.niit.backend.Dao.EventDao;
 import com.niit.backend.model.Event;
 
@@ -25,11 +34,9 @@ public class EventController {
 	@Autowired
 	Event event;
 	
-	/*
-	 * 
-	 * fetch all events
-	 * 
-	 */
+	 
+	///////// fetch all events////
+	 
 	
 	
 	@RequestMapping(value = "/events", method = RequestMethod.GET)
@@ -40,12 +47,13 @@ public class EventController {
         }
         return new ResponseEntity<List<Event>>(events, HttpStatus.OK);
 	}
+	
+	/*
     
-  /*
-   * 
-   * create event
-   * 
-   */
+  
+  
+  ///// create event//////
+   
     
   @RequestMapping(value = "/events", method = RequestMethod.POST)
   public ResponseEntity<Void> createEvent(@RequestBody Event event,UriComponentsBuilder ucBuilder) {
@@ -63,6 +71,49 @@ public class EventController {
       headers.setLocation(ucBuilder.path("/events/{event_id}").buildAndExpand(event.getEvent_id()).toUri());
       return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
   }
+  
+  */
+	
+	@RequestMapping(value = "/user/saveUserDataAndFile", method = RequestMethod.POST)
+	@ResponseBody
+	public Object saveUserDataAndFile(@RequestParam(value = "event") String userInfo,
+	        @RequestParam(value = "file") MultipartFile file,HttpServletRequest request) {
+		
+		System.out.println("Inside File upload" + userInfo);
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			Event event= mapper.readValue(userInfo, Event.class);
+			 event.setEvent_id("EVT" + UUID.randomUUID().toString().substring(30).toUpperCase());
+				event.setCreatedAt(new Date());
+				eventDao.saveOrUpdate(event);
+			System.out.println(event.toString());
+		} catch (JsonParseException e1) {
+			
+			e1.printStackTrace();
+		} catch (JsonMappingException e1) {
+			
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			
+			e1.printStackTrace();
+		}
+		
+	
+		String rootDirectory = "E:\\testUpload\\";
+		System.out.println("Root Directory "+rootDirectory);
+		try {                                      
+			file.transferTo(new File(rootDirectory  + file.getOriginalFilename()));
+		} catch (IllegalStateException e) {
+			
+			e.printStackTrace();
+		} catch (IOException e) {
+		
+			e.printStackTrace();
+		}
+		
+		return null;
+		
+	}
 
    
   /*

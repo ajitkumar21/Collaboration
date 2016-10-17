@@ -5,15 +5,11 @@ import java.util.List;
 import com.niit.backend.model.BlogComment;
 
 public interface BlogCommentDao {
-
-	
 	void saveOrUpdate(BlogComment blogComment);
 
-	void editBlogComment(BlogComment blogComment);
+		BlogComment getById(String blogComment_id);
 		
-	BlogComment get(String user_id);
+		List<BlogComment> listAllComments();
 		
-	List<BlogComment> list();
-		
-	BlogComment getBlogCommentByName(String userName);
+		void deleteBlogCommentById(String blogComment_id);
 }

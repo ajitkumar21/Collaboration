@@ -5,10 +5,15 @@ Author: http://binarytheme.com
  Share Us if You Like our work 
  Enjoy Our Codes For Free always.
 ======================================*/
+.carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      width: 70%;
+      margin: auto;
+  }
 
 /* user image section */
 .user-section {
-    height: 150px;
+    height: 167px;
     margin-top:30px;
     font-size:22px;
     background-color:#044382;

@@ -13,8 +13,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.niit.backend.Dao.AuthoritiesDao;
+import com.niit.backend.Dao.UserDao;
 import com.niit.backend.Dao.UserDetailsDao;
 import com.niit.backend.Mail.Mail;
+import com.niit.backend.model.Authorities;
+import com.niit.backend.model.User;
 import com.niit.backend.model.UserDetails;
 
 @RestController
@@ -25,6 +29,18 @@ public class UserController {
 	
 	@Autowired
 	UserDetailsDao userDetailsDao;
+	
+	@Autowired
+	Authorities authorities;
+	
+	@Autowired
+	AuthoritiesDao authoritiesDao;
+	
+	@Autowired
+	User user;
+	
+	@Autowired
+	UserDao userDao;
 	
 	private Mail mail = new Mail();
 	
@@ -55,7 +71,21 @@ public class UserController {
 		userDetails.setIs_notify("pending");
 		userDetails.setEnabled("student");
 		userDetailsDao.saveOrUpdate(userDetails);
-		String message = "Hello "+userDetails.getUserName()+" you're successfully registered with us, Thanks !";
+		
+		User user=new User();
+		user.setUserName(userDetails.getUserName());
+		user.setPassword(userDetails.getPassword());
+		user.setEnabled(true);
+		user.setUserDetails_id(userDetails.getUserDetails_id());
+		userDao.saveOrUpdate(user);
+		Authorities authorities=new Authorities();
+		authorities.setAuthority(userDetails.getStatus());
+		authorities.setUserName(userDetails.getUserName());
+		authorities.setUser_id(user.getUser_id());
+		authoritiesDao.saveOrUpdate(authorities);
+		
+		
+		String message = "Hello "+userDetails.getUserName()+" you are successfully registered with us, Thanks !";
 		
 		mail.sendEmail(userDetails.getEmail(),"Registration Successfull",message);	
 		HttpHeaders headers = new HttpHeaders();

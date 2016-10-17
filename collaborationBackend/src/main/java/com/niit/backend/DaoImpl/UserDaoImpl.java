@@ -5,20 +5,19 @@ import java.util.List;
 import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.Dao.UserDao;
 import com.niit.backend.model.User;
 
+@Repository("userDao")
 public class UserDaoImpl implements UserDao {
 
 	@Autowired
 	private SessionFactory sessionFactory;
 
-	public UserDaoImpl(SessionFactory sessionFactory) {
-			this.sessionFactory = sessionFactory;
-
-		}
+	
 	@Transactional
 	public void saveOrUpdate(User user) {
 		// TODO Auto-generated method stub

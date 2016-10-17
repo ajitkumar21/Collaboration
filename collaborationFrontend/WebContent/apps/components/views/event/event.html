@@ -1,15 +1,21 @@
  <menus-bar></menus-bar>
-  <sidemenu-bar></sidemenu-bar>
-
+ <sidemenu-bar></sidemenu-bar>
+<br>
+  <br>
+  <div class="container">
  <div id="page-wrapper">
 
-  <div class="row">
+  <div class="row"> 
     <!-- Page Header -->
-    <div class="col-lg-12">
-      <h1 class="page-header" style="color:#95A5A6;font-style:bold"><span class="fa fa-calendar-o"> </span> Events</h1>
-    </div>
+    <div style="background:#E5E8E8;">
+   <marquee> 
+
+     <h1 class="page-header" align="center"><span style="color:Maroon;"><span class="fa fa-calendar-o"> </span> Events </span></h1>
+   </marquee>
+ </div>
     <!--End Page Header -->
   </div> 
+  <br>
   <div class="row">
     <div class="col-lg-12">
      <div ng-controller="eventController">
@@ -26,6 +32,8 @@
         <i><input type="text" ng-model="eventCtrl.event.eventName" id="eventName" class="form-control input-sm" placeholder="Event title ...." /></i>
         <br>
         <i><input type="text" ng-model="eventCtrl.event.description" id="description" class="form-control input-sm" placeholder="Event Description......"/></i>
+        <br>
+        <input type="file" file-model="eventCtrl.myFile"/>
         <br>
         <div align="center">
           <input type="submit" value="{{!eventCtrl.event.event_id ? 'Add' : 'Update'}}" class="btn btn-success" ng-disabled="myForm.$invalid">
@@ -51,7 +59,7 @@
 <div class="col-lg-12">
   <div class="row">
     <div ng-repeat="event in eventCtrl.events">
-    <div class="col-lg-6">
+      <div class="col-lg-6">
        <table class="table table-striped" > <tr> 
 
         <tbody>

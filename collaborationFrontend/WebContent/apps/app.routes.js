@@ -24,9 +24,17 @@ app.config(['$routeProvider',function($routeProvider) {
 
 	.when('/blog/',{
 
-		templateUrl:"apps/components/views/blog/blog.html",
+		templateUrl:"apps/components/views/blog/blogView.html",
 		controller:"blogController",
 		controllerAs:"blogCtrl"
+		
+			})
+
+	.when('/blogs/blogView/:blog_id',{
+
+		templateUrl:"apps/components/views/blog/blogSingleView.html",
+		controller:"blogViewController",
+		controllerAs:"blogViewCtrl"
 		
 			})
 

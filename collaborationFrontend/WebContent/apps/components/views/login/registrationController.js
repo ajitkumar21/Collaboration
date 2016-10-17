@@ -23,12 +23,29 @@ user.controller('userController',[ '$scope','UserService','$http',function($scop
 	}
 
 	function createUser(userDetails){
+		/*
 		UserService
 		.createUser(userDetails)
 		.then(
 			fetchAllUser,
 			function(errResponse){
 				console.error('Error while creating userDetails');
+			}
+			);
+			*/
+			UserService
+		.createUser(userDetails)
+		.then(
+			fetchAllUser
+			,
+			function(errResponse){
+				console.error('Error while creating userDetails');
+				if(errResponse.status==409){
+					alert("already exit with email name",self.userDetails);
+				}
+				else{
+					alert("Please try another time.....");
+				}
 			}
 			);
 	}

@@ -55,7 +55,7 @@ event.controller('eventController',[ '$scope','EventService','$http',function($s
 			);
 	}
 	function submit() {
-		if(self.event.event_id===''){
+	/*	if(self.event.event_id===''){
 			console.log('Saving New event', self.event);
 			createEvent(self.event);
 		}else{
@@ -63,8 +63,38 @@ event.controller('eventController',[ '$scope','EventService','$http',function($s
 			updateEvent(self.event, self.event.event_id);
 		}
 
-		reset();
-	}
+		reset(); 
+
+		*/
+
+		if(self.event.event_id===''){
+						var file = self.myFile;
+			/* console.log('file is ' );
+			console.dir(file);*/
+			var uploadUrl = "http://localhost:8080/collaborationBackend/user/saveUserDataAndFile/";
+			var fd = new FormData();
+			fd.append('file', file);
+			fd.append('event',angular.toJson(self.event,true));
+			console.log('Socpe of event'+self.event);
+			$http.post(uploadUrl, fd, {
+				transformRequest : angular.identity,
+				headers : {
+					'Content-Type' : undefined
+				}
+			}).success(function() {
+				console.log('success');
+			}).error(function() {
+				console.log('error');
+			});		
+}
+else{
+	console.log('Event updated with event_id ', self.event.event_id);
+	updateEvent(self.event, self.event.event_id);
+}
+		
+	reset();
+}
+
 	function edit(event_id){
 		console.log('id to be edited', event_id);
 		for(var i = 0; i < self.events.length; i++){
